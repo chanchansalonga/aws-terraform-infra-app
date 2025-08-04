@@ -1,37 +1,29 @@
-variable "ami_id" {
-  description = "AMI ID for the instance"
+variable "ami" {
   type        = string
+  description = "AMI ID for the instance"
 }
 
 variable "instance_type" {
+  type        = string
   description = "EC2 instance type"
-  type        = string
-  default     = "t3.micro"
-}
-
-variable "subnet_id" {
-  description = "Subnet ID to launch the instance in"
-  type        = string
 }
 
 variable "key_name" {
-  description = "SSH key pair name"
   type        = string
+  description = "Name of the key pair to use for SSH"
 }
 
-variable "security_group_ids" {
-  description = "List of security group IDs"
-  type        = list(string)
-  default     = []
+variable "subnet_id" {
+  type        = string
+  description = "Subnet ID to launch the instance into"
 }
 
 variable "name" {
-  description = "Name tag for the instance"
   type        = string
+  description = "Name tag for the instance"
 }
 
-variable "extra_tags" {
-  description = "Additional tags for the instance"
-  type        = map(string)
-  default     = {}
+variable "security_group_ids" {
+  type        = list(string)
+  description = "List of security group IDs to associate with the instance"
 }
